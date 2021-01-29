@@ -1,0 +1,41 @@
+@import 'globals';
+
+header {
+    display: block;
+    padding: 2em;
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 200;
+    width: 1px;
+    user-select: none;
+
+    h1 {
+        margin: 0;
+        display: none;
+
+        a {
+            color: nth($h1-color, 1);
+
+            span {
+                color: nth($h1-color, 2);
+                span {
+                    color: nth($h1-color, 2);
+                    overflow: hidden;
+                    letter-spacing: -15px;
+                    min-width: 0px;
+                    display: inline-block;
+                    margin-bottom: -.35rem;
+                    transition:cubic-bezier(0.68, -0.55, 0.265, 1.55) 200ms;
+                    opacity: 0;
+                }
+
+                &:hover span {
+                    letter-spacing: normal;
+                    opacity: 1;
+                }
+            }
+            
+        }
+    }
+}

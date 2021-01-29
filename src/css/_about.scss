@@ -1,0 +1,142 @@
+@import 'globals';
+
+#about {
+
+    position: relative;
+    background-color: nth($color-palette, 2);
+    z-index: 7;
+    overflow: visible;
+    padding-top: 20vh;
+
+    &.active {
+        z-index: 200;
+        opacity: 1;
+    }
+
+    .svg-wave {
+        position: relative;
+        path {
+            fill: nth($color-palette, 3);
+        }
+    }
+
+    & > article {
+
+        background-color: #dcdcdc;
+        padding-bottom: 20vh;
+
+        picture {
+            max-width: 12rem;
+            max-height: 12rem;
+            width: 30vmin;
+            height: 30vmin;
+            border-radius: 50%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            /* margin: 0 auto; */
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 500;
+            box-shadow: 0px 2px 5px -3px #000c;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h3 {
+            margin: {
+                left: auto;
+                right: auto;
+            }
+            text-align: center;
+        }
+
+        p {
+            margin: 0 auto;
+            &:not(:last-child) {
+                margin-bottom: 5vh;
+            }
+
+            strong {
+                color: cadetblue;
+                font-size: 1.75rem;
+            }
+
+            a {
+                user-select: none;
+                cursor: pointer;
+                color: #9c4343;
+                white-space: nowrap;
+                &:hover {
+                    text-decoration: {
+                        color: #9c4343;
+                        line: underline;
+                        skip-ink: auto;
+                        style: wavy;
+                        thickness: from-font;
+                    }
+                }
+            }
+
+            &.main {
+                font-size: 1.5rem;
+                margin-bottom: 10vh;
+                color: map-get($text-color, 'light');
+            }
+        }
+
+        .call-to-action {
+            margin-top: 4rem;
+            margin-left: 50%;
+            display: inline-block;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    }
+
+}
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// MEDIA QUERY
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+@media only screen and (max-width: #{$tablet-screen-width - 1}) {
+    #about {
+
+        &>article {
+
+            p {
+                margin: {
+                    right: .5rem;
+                    left: .5rem;
+                }
+            }
+
+            .music-accounts {
+
+                padding-top: 1em;
+                background-color: #ffffff61;
+
+            }
+
+        }
+    
+    }
+}

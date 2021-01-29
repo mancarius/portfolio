@@ -1,0 +1,55 @@
+@import 'globals';
+
+.loading-frame {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: nth($color-palette, 2);
+    z-index: 1000;
+    overflow: hidden;
+
+    .ball {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 5vmin;
+        height: 5vmin;
+        background: nth($color-palette, 1);
+        background: radial-gradient(circle, #ffffff 0%, nth($color-palette, 1) 50%);
+        background-position-y: -1vmin;
+        background-size: cover;
+        border-radius: 50%;
+
+        &:not(.expand) {
+            animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+            animation-iteration-count: infinite;
+        }
+
+        &.expand {
+
+            transition: all linear 1s;
+            transition-property: height, width;
+            width: 113vmax;
+            height: 113vmax;
+            background: radial-gradient(circle, nth($color-palette, 1) 0%, nth($color-palette, 1) 50%);
+
+        }
+    }
+}
+
+@keyframes bounce {
+    from {
+        //transform: translateY(0%);
+        transform: scale3d(1.5, 1.5, 1)
+    }
+
+    to {
+        //transform: translateY(100%) scale3d(1.1, .8, 0);
+        transform: scale3d(1, 1, 1)
+    }
+}

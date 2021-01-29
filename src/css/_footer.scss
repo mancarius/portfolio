@@ -1,0 +1,84 @@
+@import 'globals';
+
+footer {
+    align-items: center;
+    justify-content: center;
+    clear: booth;
+    color: $footer-text-color;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    background-color: $footer-background-color;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem;
+
+    &::before {
+        content: ' ';
+        transform: skewY($deg);
+        position: absolute;
+        top: -3.1rem;
+        left: 0;
+        height: 5.5rem;
+        background-color: nth($color-palette, 2);
+        width: 100%;
+        z-index: -1;
+    }
+
+    h3 {
+        margin: 1em 0;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    p {
+        color: $footer-text-color;
+        font-size: .9em;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        &.contact-socials {
+            @include socials;
+        }
+    }
+}
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// MEDIA QUERY
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+@media only screen and (max-width: #{$tablet-screen-width - 1}) {
+
+    footer {
+        padding-bottom: 10vh;
+        flex-flow: column;
+
+        ul {
+           &.contact-socials {
+               li {
+                   a {
+                       text-align: center;
+                   }
+               }
+           }
+        }
+    }
+
+}

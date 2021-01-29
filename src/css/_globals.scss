@@ -1,0 +1,92 @@
+$color-palette:(darkslategray, cadetblue, #dcdcdc, #444, #9c4343);
+
+$deg: 0deg;
+$translateY: 10vh;
+
+$border-radius: 3px;
+
+$mobile-screen-width:425px;
+$tablet-screen-width:768px;
+$laptop-screen-width: 1024px;
+
+$font-family-monospace: "Inconsolata",monospace;
+
+$main-font: system-ui;
+$text-transition: cubic-bezier(0.98, 0.28, 0.25, 1.51) 400ms;
+$text-color:(
+    lighter: #cecece,
+    light:#777, 
+    normal:#444,
+    strong:#000,
+);
+
+
+$title-color:(nth($color-palette, 1), nth($color-palette, 4));
+
+$h1-color: (nth($color-palette, 5), nth($color-palette, 3));
+$h1-font-family: "Jura", Arial,sans-serif;
+
+$h2-color: nth($color-palette, 1);
+$h2-font-family: "Jura", Arial, sans-serif;
+
+
+$nav-font-family: "Jura", Arial, sans-serif;
+$nav-font-style: normal;
+$nav-font-size: 1em;
+$nav-font-size-inc: 1.25;
+$nav-font-weight: 100;
+$nav-text-transform: capitalize;
+$nav-color: nth($color-palette, 2);
+$nav-color-hover:nth($color-palette, 3);
+$nav-opacity:0.7;
+
+$hamburger-transition: ease 400ms;
+$hamburger-width:5px;
+$hamburger-color: nth($color-palette, 5);
+
+$paragraf-font-size:('desktop': 18px, 'mobile': 20px);
+$paragraf-color: map-get($text-color, 'normal');
+
+
+$footer-background-color: nth($color-palette, 1);
+$footer-text-color: map-get($text-color, 'lighter' );
+
+
+// Social
+
+@mixin socials {
+
+    li {
+        margin: 1rem;
+
+        a {
+            &::before {
+                margin: 0 10px;
+            }
+
+            &::after {
+                content: attr(data-social-name);
+                font-size: 1em;
+                line-height: 3rem;
+                display: inline-block;
+                font-family: $nav-font-family;
+                color: $footer-text-color;
+            }
+        }
+    }
+
+}
+
+$social-colors:(
+    'twitter': #1da1f2, 
+    'github': #dcdcdc, 
+    'dribbble': #ea4c89, 
+    'linkedin': #0077b5, 
+    'instagram': #e1306c,
+    'youtube': #FF0000,
+    'soundcloud': #FE5000,
+    'spotify': #1DB954);
+
+
+// Progress Ring
+$progress-color:(#ff4141, #42e6ff, rgb(255, 191, 72), #4eff4e);

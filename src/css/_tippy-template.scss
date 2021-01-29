@@ -1,0 +1,40 @@
+@import 'globals';
+
+.tippy-template {
+
+    h3 {
+        margin: 0 {
+            bottom: .5rem;
+        };
+    }
+
+    ul {
+        overflow: hidden;
+        li {
+            display: inline-block;
+            margin: .25rem 0rem;
+            padding: .25rem;
+            border-radius: 3px;
+            background-color: map-get($text-color, 'lighter' );
+            color: map-get($text-color, 'normal');
+            font-weight: bold;
+        }
+    }
+
+    img {
+        max-width: 2rem;
+        max-height: 2rem;
+        margin: {
+            right: .5rem;
+        }
+    }
+
+    a {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        color: #fff !important;
+        font-weight: bold;
+        text-decoration: none !important;
+    }
+}

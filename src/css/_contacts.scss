@@ -1,0 +1,253 @@
+@import 'globals';
+
+#contacts {
+    position: fixed;
+    top: 100vh;
+    left:0;
+    right: 0;
+    height: 100vh;
+    z-index: 300;
+    backdrop-filter: grayscale(1) brightness(0.25) blur(5px);
+    overflow: hidden;
+    opacity: 0;
+    transition: ease-out 400ms;
+    transform-origin: top;
+    transform: scaleY(.5);
+
+    &.active {
+        top: 0;
+        overflow: auto;
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    #close-contacts {
+        position: absolute;
+        right: 0.83em;
+        top: 0.83em;
+        font-size: 1.5em;
+        padding: 0.5em;
+        background: none;
+        border: none;
+        color: map-get($text-color, 'lighter');
+        opacity: .5;
+        cursor: pointer;
+        transition: ease 200ms;
+        outline: none;
+
+        &:hover {
+            opacity: 1;
+            color:#c13636;
+        }
+    }
+
+    article {
+        max-width: 700px;
+        min-height: 100vh;
+        padding: {
+            top:1px;
+        };
+        margin: 0 auto;
+        color: map-get($text-color, 'lighter');
+        display: flex;
+        flex-flow: column;
+
+        & > p {
+            &:first-child {
+                margin-top: 5vh;
+            }
+
+            &:last-child {
+                margin-bottom: 5vh;
+            }
+        }
+
+        &>h2{
+            display: flex;
+            align-items: center;
+            color: #dcdcdc;
+            &>* {
+                color: #dcdcdc;
+            }
+        }
+
+        & > * {
+            flex:1;
+            min-width: 300px;
+            transform: skewX($deg);
+        }
+
+        .contact-socials {
+            margin: 0 {
+                top: auto;
+                bottom: 0;
+            };
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            @include socials;
+        }
+
+        #contact-form {
+
+            position: relative;
+            flex: 3;
+
+            fieldset {
+                border: none;
+                padding: 0;
+
+                legend {
+                    font-size: map-get($paragraf-font-size, 'desktop');
+                    margin: {
+                        bottom: 1rem;
+                    }
+                }
+
+                & > div {
+                    padding: .5rem;
+                    &:not(:last-child) {
+                        margin-bottom: 1rem;
+                    }
+                }
+                .form-group {
+                    position: relative;
+                    clear: both;
+
+                    &.left {
+                        float: left;
+                        width: 50%;
+                        clear: none;
+                    }
+                }
+
+            }
+
+            input[type="submit"] {
+                max-width: 10rem;
+                margin: 0 auto;
+                display: block;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////
+//
+// MEDIA QUERY
+//
+///////////////////////////////////////////////////
+
+
+
+@media only screen and (max-width: #{$laptop-screen-width - 1}) {
+    #contacts {
+
+        article {
+
+                .contact-socials {
+
+                    a {
+
+                        &::after {
+                            content: attr(data-social-name);
+                        }
+
+                    }
+
+                }
+
+        }
+
+    }
+}
+
+
+
+@media only screen and (max-width: #{$tablet-screen-width - 1}) {
+
+    #contacts {
+
+        #close-contacts {
+            padding: 5vmin;
+            z-index: 100;
+            right: .85em;
+        }
+
+        article {
+
+                & * {
+                    transition:ease 200ms;
+                }
+
+                & > *:not(.divider) {
+                    border-radius: 5px;
+                    padding: 5vmin;
+                    transform: skewX(0);
+                }
+
+                .contact-socials {
+                    backdrop-filter: blur(3px);
+                    flex-flow: row;
+                    flex-wrap: nowrap;
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding: {
+                        left: 0;
+                        right: 0;
+                    }
+                    margin-bottom: 5vw;
+                    
+                    li {
+                        margin: 0px !important;
+
+                        a {
+                            font-size: 3rem;
+                            padding: .25rem;
+                            transform: skewX(0deg);
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                #contact-form {
+
+                    fieldset {
+
+                        &>div {
+                            max-width: 100%;
+                        }
+
+                        .form-group {
+
+                            &.left {
+                                float:none;
+                                width: auto;
+                                clear: both;
+                            }
+                        }
+
+                    }
+
+                    button {
+                        width: 100%;
+                    }
+
+                }
+
+        }
+
+    }
+
+}

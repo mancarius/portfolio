@@ -1,0 +1,147 @@
+@import 'globals';
+@import 'font-face';
+
+
+#home {
+    background: none;
+    z-index: 150;
+    background-position: bottom left;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    padding:0;
+    margin: 0;
+    min-height: calc(100vh - 3rem);
+    transition: cubic-bezier(0.68, -0.29, 0.72, 0.95) 600ms;
+    overflow: visible;
+
+
+    .svg-wave {
+        flex: 1;
+    }
+
+
+    .fade-in {
+        opacity: 0 !important;
+        transform: translateY(1rem);
+        transition: ease-out 600ms;
+
+        &.active {
+            opacity:initial !important;
+            transform: translateY(0);
+        }
+    }
+
+
+    & > article {
+        display: flex;
+        align-items: center;
+
+        .main {
+            font-size: 2.5vmin;
+            max-width: fit-content;
+            padding: 0;
+            margin: 0 3vw;
+            overflow: visible;
+
+            span {
+                color:nth($color-palette, 2);
+                
+                &.text-block {
+                    display: inline-block;
+                    white-space: nowrap;
+                    font-size: 1em;
+                    line-height: .8;
+                    font-family: Impacto, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+                    &.left {
+                        margin-left: calc(-.042em - 1px);
+                        float: left;
+                    }
+
+                    &.right {
+                        margin-right: calc(-.025em - 1px);
+                        float: right;
+                    }
+
+                    &.block {
+                        display: block;
+                        clear: both;
+                        margin: {
+                            left: calc(-.042em - 1px);
+                            right: calc(-.025em - -20px);
+                        }
+                    }
+
+                    &:nth-of-type(1) {
+                        font-size: 10.5em;
+                        margin-top: calc(-.011em);                        
+                    }
+
+                    &:nth-of-type(2) {
+                        font-size: 3em;
+                        
+                    }
+
+                    &:nth-of-type(3) {
+                        font-size: 6.8em;
+                        
+                    }
+
+                    &:nth-of-type(4) {
+                        font-size: 4.7em;
+                    }
+
+                    &:nth-of-type(5) {
+                        font-size: 3em;
+                    }
+
+                    &:nth-of-type(6) {
+                        font-size: 5em;
+                        margin-right: 0;
+                    }
+
+                    &:nth-of-type(7) {
+                        font-size: 3.6em;
+                        margin-left: 0;
+                        margin-bottom: .095em;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+
+///////////////////////////////////////////////////
+//
+// MEDIA QUERY
+//
+///////////////////////////////////////////////////
+
+
+
+
+@media only screen and (min-width: #{$tablet-screen-width}) {
+
+}
+
+
+
+@media only screen and (max-width: #{$tablet-screen-width - 1}) {
+    #home {
+
+        article {
+            padding: 0;
+            min-height: auto;
+        }
+
+        
+    }
+}

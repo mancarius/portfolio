@@ -1,0 +1,231 @@
+@import 'globals';
+
+#skills {
+
+    .svg-wave {
+        path {
+            fill: nth($color-palette, 2);
+        }
+    }
+
+    &>article {
+        width: 100%;
+        align-items: stretch;
+        min-height: 100vh;
+        background-color: nth($color-palette, 2);
+        padding: {
+            left: 0;
+            right: 0;
+        }
+
+        &>h2 {
+            color: map-get($text-color, 'lighter' );
+            margin-top:1em;
+        }
+
+        .skills-list {
+            width: 100%;
+            padding: 1rem;
+            margin: 0 {
+                top: 2rem;
+            };
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+            grid-gap: 1rem;
+            
+
+            .skills-item {
+                display: flex;
+                background-color: #0000003a;
+                padding: 2rem;
+                border-radius: $border-radius;
+
+                &:focus {
+                    outline: none;
+                }
+
+                $i: 1;
+
+                @each $color in $progress-color {
+                    &:nth-child(#{$i}) .progress-ring__circle {
+                        stroke: $color;
+                    }
+
+                    &:nth-child(#{$i}) .percent {
+                        color: $color;
+                    }
+
+                    $i: $i+1;
+                }
+
+                .wrapper {
+
+                    display: flex;
+                    align-items: flex-start;
+
+                    header {
+                        position: relative;
+                        width: 12vw;
+                        height: 12vw;
+                        min-width: 8rem;
+                        min-height: 8rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-flow: column;
+                        margin: {
+                            right: 2rem;
+                        }
+                        padding: 0;
+
+                        .progress-ring {
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            bottom: 0;
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+
+                            .progress-ring__circle {
+                                stroke-dashoffset: 0;
+                                transition: stroke-dashoffset 1s ease-in-out;
+                                transition-delay: 200ms;
+                                transform: rotate(-90deg);
+                                transform-origin: 50% 50%;
+                                stroke-width:1%;
+                                fill: #f0f0f00d;
+                                r:49%;
+                                cx:50%;
+                                cy:50%;
+                            }
+                        }
+
+                        .percent {
+                            font-size: 2.2em;
+                            font-weight: lighter;
+                            margin-right: -.25em;
+
+                            &::after {
+                                content: '%';
+                                font-size: .5em;
+                            }
+                        }
+
+                        h3 {
+                            margin: 0;
+                            color: #d4d4d4;
+                            z-index: 2;
+                        }
+                    }
+
+                    p {
+                        width: fit-content;
+                        margin: 0;
+                        padding: 0;
+                        flex: 4;
+                        color: map-get($text-color, 'lighter')
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// MEDIA QUERY
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+@media only screen and (min-width: #{$tablet-screen-width}) {
+
+    #skills {
+
+        .skills-list {
+
+            .skills-item {
+
+                .wrapper {
+
+                    header {
+                        max-width: 15rem;
+                        max-height: 15rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+@media only screen and (max-width: #{$tablet-screen-width - 1}) {
+
+    #skills {
+
+        &>article {
+
+            .skills-list {
+                padding: {
+                    bottom: 5rem;
+                }
+                display:block;
+                transform: skewX($deg);
+                
+                // for slick
+                .slick-slide {
+
+                    $i: 1;
+
+                    @each $color in $progress-color {
+                        &:nth-child(#{$i}) .progress-ring__circle {
+                            stroke: $color;
+                        }
+
+                        &:nth-child(#{$i}) .percent {
+                            color: $color;
+                        }
+
+                        $i: $i+1;
+                    }
+
+                } // end slick
+
+                .skills-item{
+                    padding: 2rem 1rem;
+                    min-height: 100%;
+
+                    .wrapper {
+                        flex-flow: column;
+                        align-items: center;
+
+                        header {
+                            margin: {
+                                bottom: 2rem;
+                                left: auto;
+                                right: auto;
+                            }
+                            min-width: 10rem;
+                            min-height: 10rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
