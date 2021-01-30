@@ -93,11 +93,12 @@ nav {
     nav {
 
         position: absolute;
-        top:2rem;
+        top: 50%;
+        transform: translateY(-50%);
         right: 2rem;
 
         #main-menu {
-            transform: rotateZ(90deg) translateX(calc(100% - 2rem));
+            transform: rotateZ( 90deg ) translateX( calc( 50% - 0rem ) );
             transform-origin: right;
             
             li {

@@ -9,8 +9,7 @@ import {
     toggleNav,
     navTo,
     formSubmit,
-    findElementOnScreen,
-    handleMotion
+    findElementOnScreen
 } from './modules/modules'
 import '/src/css/index.scss'
 
@@ -18,7 +17,7 @@ import '/src/css/index.scss'
 //////////////////////////////////////
 // Move home text based on device orientation
 
-window.addEventListener('devicemotion', handleMotion, true);
+//window.addEventListener('devicemotion', handleMotion, true);
 
 
 //////////////////////////////////////////////

@@ -1,7 +1,7 @@
-export {
+/*export {
     handleOrientation
 }
-from "./handleMotion";
+from "./handleMotion";*/
 
 
 export const progressRing = {

@@ -654,12 +654,14 @@ nav #main-menu li a {
 @media only screen and (min-width: 768px) {
   nav {
     position: absolute;
-    top: 2rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
     right: 2rem;
   }
   nav #main-menu {
-    -webkit-transform: rotateZ(90deg) translateX(calc(100% - 2rem));
-            transform: rotateZ(90deg) translateX(calc(100% - 2rem));
+    -webkit-transform: rotateZ(90deg) translateX(calc( 50% - 0rem));
+            transform: rotateZ(90deg) translateX(calc( 50% - 0rem));
     -webkit-transform-origin: right;
             transform-origin: right;
   }
