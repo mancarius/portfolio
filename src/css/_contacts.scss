@@ -194,25 +194,35 @@
                     transform: skewX(0);
                 }
 
+                & > p {
+                    margin: {
+                        left: .5rem;
+                        right: .5rem;
+                    }
+                }
+
                 .contact-socials {
                     backdrop-filter: blur(3px);
                     flex-flow: row;
                     flex-wrap: nowrap;
                     display: flex;
-                    justify-content: space-evenly;
+                    justify-content: space-between;
                     padding: {
                         left: 0;
                         right: 0;
                     }
-                    margin-bottom: 5vw;
+                    margin: {
+                        top: 1em;
+                    }
+                    border-top: 1px dashed #595959;
+                    width: 100%;
                     
                     li {
                         margin: 0px !important;
 
                         a {
-                            font-size: 3rem;
-                            padding: .25rem;
-                            transform: skewX(0deg);
+                            font-size: 2rem;
+                            transform: rotatez(15deg);
 
                             &::after {
                                 display: none;

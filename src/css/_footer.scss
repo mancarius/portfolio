@@ -14,23 +14,16 @@ footer {
     position: relative;
     padding: 2rem;
 
-    &::before {
-        content: ' ';
-        transform: skewY($deg);
-        position: absolute;
-        top: -3.1rem;
-        left: 0;
-        height: 5.5rem;
-        background-color: nth($color-palette, 2);
-        width: 100%;
-        z-index: -1;
-    }
-
     h3 {
         margin: 1em 0;
 
         * {
-            color: inherit;
+            color: nth($color-palette, 3);
+        }
+
+        i {
+            font-size: 0.7em;
+            opacity: .7;
         }
     }
 
@@ -69,12 +62,24 @@ footer {
     footer {
         padding-bottom: 10vh;
         flex-flow: column;
+        padding: 2rem 1rem;
 
         ul {
            &.contact-socials {
+               justify-content: space-between;
+               width: 100%;
+
                li {
+                   margin: 1rem 0;
+
                    a {
+                       font-size: 2rem;
                        text-align: center;
+                       transform: rotatez(15deg);
+
+                       &::after {
+                           display: none;
+                       }
                    }
                }
            }

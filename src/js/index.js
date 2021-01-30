@@ -79,7 +79,6 @@ $(window).on('orientationchange', function () {
 $(document).on('click', 'a[href="#contacts"], #close-contacts', toggleContacts);
 
 
-
 //////////////////////////////////////////////
 // Toggle Nav
 //////////////////////////////////////////////
@@ -98,8 +97,6 @@ $('a[data-target]').on('click', (e) => {
     const target = '#' + el.dataset.target;
     navTo(target);
 });
-
-
 
 
 
@@ -231,6 +228,15 @@ window.onload = () => {
         .parent()
         .delay(1000)
         .fadeOut(() => {
-            $('body').removeClass('no-scroll');
+            // don't show scrollbar if contacts frame is open
+            if (location.hash !== "#contacts")
+                $('body').removeClass('no-scroll');
+            else
+                $('body').addClass('no-scroll');
         });
+    
+    //open contacts frame if hash point on #contacts
+    if (location.hash === "#contacts") {
+        toggleContacts();
+    }
 }

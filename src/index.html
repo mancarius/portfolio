@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Mattia Mancarella's portfolio" />
+        <meta name="description" content="Mattia Mancarella is a creative full full-stack web developer and wordpress theme developer." />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="darkslategray" />
+
+        <!-- OpenGraph Markup -->
+        <meta property="og:url"
+            content="https://www.mattiamancarella.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Mattia Mancarella Portfolio" />
+        <meta property="og:description"
+            content="I'm a creative full full-stack web developer and wordpress theme developer." />
+        <meta property="og:image"
+            content="https://www.mattiamancarella.com/images/mattia-mancarella-512px.jpg" />
+        <meta property="og:image:secure_url"
+            content="https://www.mattiamancarella.com/images/mattia-mancarella-512px.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="541" />
+        <meta property="og:image:alt" content="Mattia Mancarella" />
+        <meta name="twitter: card" content="summary_large_image" />
+        <meta name="twitter: site" content="@MaTiaMancareLa" />
+        <meta name="twitter: creator" content="@MaTiaMancareLa" />
+        <meta name="twitter:title" content="Mattia Mancarella Portfolio" />
 
         <!-- FontAwesome Icons -->
         <link
@@ -15,13 +35,14 @@
             integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
             crossorigin="anonymous">
         <!-- Slick -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" type="text/css"
-            href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
         <!-- Custom Stylesheet 
         <link rel="stylesheet" href="./src/css/index.css">-->
 
-        <title>Mattia Mancarella | Full-Stack Web Developer</title>
+        <title>Mattia Mancarella Portfolio</title>
     </head>
 
     <body class="no-scroll">
@@ -93,8 +114,8 @@
                 <div class="wave top"></div>
                 <article>
                     <h2 class="fade-in">About my skills</h2>
-                    <ul class="skills-list fade-in">
-                        <li class="skills-item">
+                    <div class="skills-list fade-in">
+                        <div class="skills-item">
                             <div class="wrapper">
                                 <header>
                                     <svg class="progress-ring" data-percent="80">
@@ -113,8 +134,8 @@
                                     and some libraries like <strong>Redux</strong> and <strong>Material UI</strong>
                                     </p>
                             </div>
-                        </li>
-                        <li class="skills-item">
+                        </div>
+                        <div class="skills-item">
                             <div class="wrapper">
                                 <header>
                                     <svg class="progress-ring" data-percent="60">
@@ -133,8 +154,8 @@
                                     like <strong>Express</strong> and
                                     <strong>Mongoose</strong>.</p>
                             </div>
-                        </li>
-                        <li class="skills-item">
+                        </div>
+                        <div class="skills-item">
                             <div class="wrapper">
                                 <header>
                                     <svg class="progress-ring" data-percent="35">
@@ -150,8 +171,8 @@
                                     Some of my favorite plugins are <strong>Advanced Custom Fields</strong> and
                                     <strong>Custom Post Type UI</strong>.</p>
                             </div>
-                        </li>
-                        <li class="skills-item">
+                        </div>
+                        <div class="skills-item">
                             <div class="wrapper">
                                 <header>
                                     <svg class="progress-ring" data-percent="50">
@@ -166,9 +187,9 @@
                                     my works such as <strong>Github</strong>, <strong>npm</strong>,
                                     <strong>OneSignal</strong> and
                                     <strong>Webpack</strong>.</p>
-                            </li>
-                        </li>
-                    </ul>
+                            </div>
+                        </div>
+                    </div>
                 </article>
             </section>
 
@@ -185,10 +206,10 @@
                 <article>
 
                     <picture class="fade-in">
-                        <source media="(max-width: 1024px)" srcset="/src/assets/img/mattia-mancarella-512px.jpg" />
-                        <source media="(max-width: 768px)" srcset="/src/assets/img/mattia-mancarella-256px.jpg" />
-                        <source media="(max-width: 425px)" srcset="/src/assets/img/mattia-mancarella-128px.jpg" />
-                        <img src="/src/assets/img/mattia-mancarella-512px.jpg" itemprop="image"
+                        <source media="(max-width: 1024px)" srcset="/images/mattia-mancarella-512px.jpg" />
+                        <source media="(max-width: 768px)" srcset="/images/mattia-mancarella-256px.jpg" />
+                        <source media="(max-width: 425px)" srcset="/images/mattia-mancarella-128px.jpg" />
+                        <img src="/images/mattia-mancarella-512px.jpg" itemprop="image"
                             alt="Photo of Mattia Mancarella">
                     </picture>
 
@@ -197,8 +218,8 @@
                     <p class="main fade-in">Hi, I'm <span itemprop="name">Mattia Mancarella</span> (aka <span
                             itemprop="additionalName">Mancarius</span>) and i'm coding from sunny Lecce (Italy).<br />I
                             am a
-                            <strong>creative</strong>, <strong>attentive to details</strong> and
-                        with good <strong>analytical skills</strong> person. I like</strong> to go deep
+                            <strong>creative</strong>, <strong>attentive to details</strong>, <strong>critical thinker</strong> and
+                        with <strong>problem-solving skills</strong> person. I like</strong> to go deep
                             into situations that are challenging and that help me improve and create
                         value for others.</p>
 
@@ -207,24 +228,25 @@
                     <p class="fade-in">My first encounter with coding took place in high school, where I graduated as a
                         computer expert. After completing my studies, however, I worked in completely different
                         fields for a long time, dedicating myself to web development as a hobby and carrying out
-                        personal projects such as <a data-tippy-template="project-1">services for virtual
+                        personal projects such as <a href="#!" data-tippy-template="project-1">services for virtual
                                 worlds</a> or sites for the management
-                        of <a data-tippy-template="project-2">amateur football
+                        of <a href="#!" data-tippy-template="project-2">amateur football
                         tournaments</a>.</p>
 
-                    <p class="fade-in">As part of these projects, I also acquired basic notions of <a
+                    <p class="fade-in">As part of these projects, I also acquired basic notions of <a href="#!"
                             data-tippy-template="design-tools">Graphic Design</a>,
-                        <a data-tippy-template="3d-tools">3D
-                        modeling</a> and <a data-tippy-template="adv-tools">advertising</a>.</p>
+                        <a href="#!" data-tippy-template="3d-tools">3D
+                        modeling</a> and <a href="#!" data-tippy-template="adv-tools">advertising</a>.</p>
 
                     <h3 class="fade-in">Beyond the code</h3>
 
-                    <p class="fade-in">I'm not only code e coffe. In my free time I like <a
+                    <p class="fade-in">I'm not only code e coffe. In my free time I like <a href="#!"
                         data-tippy-template="fl-studio">composing</a> and playing music.
                         I am also a lover of good food (hey, I'm Italian! 🍝), Travel, photography, trekking and
-                        fantasy movie (totally in love for <a data-tippy-template="LOTR">The Lord of the Rings</a>
+                        fantasy movie (totally in love for <a href="#!" data-tippy-template="LOTR">The Lord of the
+                            Rings</a>
                         🧝🏼). I'm not a video game addict,
-                        but I love medieval strategy games (did anyone say <a
+                        but I love medieval strategy games (did anyone say <a href="#!"
                             data-tippy-template="stronghold">Stronghold</a>?🏰)</p>
 
                     <a class="btn call-to-action fade-in" href="#contacts">Get in touch</a>
@@ -237,7 +259,7 @@
             ------------------------------------------>
 
             <section id="contacts">
-                <button id="close-contacts" class="fas fa-times"></button>
+                <button id="close-contacts" class="fas fa-times" aria-label="Exit contacts"></button>
                 <article>
                     <h2>Contacts</h2>
                     <p>Whether you want to work with me or you just want to say "Hello", I'll be happy to read you! 😃</p>
@@ -267,7 +289,7 @@
             ------------------------------------------>
 
             <footer>
-                <h3><a href="#home">Mattia Mancarella</a></h3>
+                <h3><a href="#home" title="Go to top">Mattia Mancarella <i class="fas fa-arrow-up"></i></a></h3>
                 <!-- Link Social -->
                 <ul class="contact-socials"></ul><!-- .contact-social -->
                 <p>Self-product with ❤️</p>
@@ -336,7 +358,7 @@
             </div>
             <div id="fl-studio">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/FL_Studio" target="_blank">
+                    <a href="https://en.wikipedia.org/wiki/FL_Studio" target="_blank" rel="noopener">
                         <img src="https://www.image-line.com/wp-content/themes/intracto/build/images/fl-header-logo.png"
                             alt="FL Studio Logo"> My favorite DAW is FL Studio
                     </a>
@@ -344,7 +366,7 @@
             </div>
             <div id="LOTR">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" target="_blank">
+                    <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/One_Ring_Blender_Render.png/130px-One_Ring_Blender_Render.png"
                             alt="The one Ring"> Lord Of The Rings
                         Thrilogy (Peter Jackson)
@@ -353,7 +375,7 @@
             </div>
             <div id="stronghold">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/Stronghold_(2001_video_game)" target="_blank">
+                    <a href="https://en.wikipedia.org/wiki/Stronghold_(2001_video_game)" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Stronghold_%282001%29_Coverart.png/220px-Stronghold_%282001%29_Coverart.png"
                             alt="Stronghold Coverart"> Stronghold
                     </a>

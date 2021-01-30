@@ -1341,6 +1341,7 @@ nav #main-menu li a {
           transform: translateX(-50%);
   font-weight: bold;
   font-size: 1.1em;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1581,6 +1582,10 @@ nav #main-menu li a {
     -webkit-transform: skewX(0);
             transform: skewX(0);
   }
+  #contacts article > p {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
   #contacts article .contact-socials {
     -webkit-backdrop-filter: blur(3px);
             backdrop-filter: blur(3px);
@@ -1593,21 +1598,22 @@ nav #main-menu li a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-left: 0;
     padding-right: 0;
-    margin-bottom: 5vw;
+    margin-top: 1em;
+    border-top: 1px dashed #595959;
+    width: 100%;
   }
   #contacts article .contact-socials li {
     margin: 0px !important;
   }
   #contacts article .contact-socials li a {
-    font-size: 3rem;
-    padding: .25rem;
-    -webkit-transform: skewX(0deg);
-            transform: skewX(0deg);
+    font-size: 2rem;
+    -webkit-transform: rotatez(15deg);
+            transform: rotatez(15deg);
   }
   #contacts article .contact-socials li a::after {
     display: none;
@@ -1649,25 +1655,17 @@ footer {
   padding: 2rem;
 }
 
-footer::before {
-  content: ' ';
-  -webkit-transform: skewY(0deg);
-          transform: skewY(0deg);
-  position: absolute;
-  top: -3.1rem;
-  left: 0;
-  height: 5.5rem;
-  background-color: cadetblue;
-  width: 100%;
-  z-index: -1;
-}
-
 footer h3 {
   margin: 1em 0;
 }
 
 footer h3 * {
-  color: inherit;
+  color: #dcdcdc;
+}
+
+footer h3 i {
+  font-size: 0.7em;
+  opacity: .7;
 }
 
 footer p {
@@ -1710,9 +1708,25 @@ footer ul.contact-socials li a::after {
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
+    padding: 2rem 1rem;
+  }
+  footer ul.contact-socials {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+  footer ul.contact-socials li {
+    margin: 1rem 0;
   }
   footer ul.contact-socials li a {
+    font-size: 2rem;
     text-align: center;
+    -webkit-transform: rotatez(15deg);
+            transform: rotatez(15deg);
+  }
+  footer ul.contact-socials li a::after {
+    display: none;
   }
 }
 /*# sourceMappingURL=index.css.map */
