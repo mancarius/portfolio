@@ -140,4 +140,8 @@ dist/
 ### assets folder ###
 assets/
 
+### dotenv ###
 .env
+
+### .htaccess ###
+.htaccess
