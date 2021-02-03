@@ -39,10 +39,11 @@
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-        <!-- Custom Stylesheet 
-        <link rel="stylesheet" href="./src/css/index.css">-->
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="./css/index.css">
 
         <title>Mattia Mancarella Portfolio</title>
+
     </head>
 
     <body class="no-scroll">
@@ -113,7 +114,7 @@
             <section id="skills" class="container" data-section-name="for nerds" data-icon="">
                 <div class="wave top"></div>
                 <article>
-                    <h2 class="fade-in">About my skills</h2>
+                    <h2 class="fade-in" tabindex="0">About my skills</h2>
                     <div class="skills-list fade-in">
                         <div class="skills-item">
                             <div class="wrapper">
@@ -206,14 +207,14 @@
                 <article>
 
                     <picture class="fade-in">
-                        <source media="(max-width: 1024px)" srcset="/images/mattia-mancarella-512px.jpg" />
-                        <source media="(max-width: 768px)" srcset="/images/mattia-mancarella-256px.jpg" />
-                        <source media="(max-width: 425px)" srcset="/images/mattia-mancarella-128px.jpg" />
-                        <img src="/images/mattia-mancarella-512px.jpg" itemprop="image"
+                        <source media="(max-width: 1024px)" srcset="./images/mattia-mancarella-512px.jpg" />
+                        <source media="(max-width: 768px)" srcset="./images/mattia-mancarella-256px.jpg" />
+                        <source media="(max-width: 425px)" srcset="./images/mattia-mancarella-128px.jpg" />
+                        <img src="./images/mattia-mancarella-512px.jpg" itemprop="image"
                             alt="Photo of Mattia Mancarella">
                     </picture>
 
-                    <h2 class="fade-in">About me</h2>
+                    <h2 class="fade-in" tabindex="0">About me</h2>
 
                     <p class="main fade-in">Hi, I'm <span itemprop="name">Mattia Mancarella</span> (aka <span
                             itemprop="additionalName">Mancarius</span>) and i'm coding from sunny Lecce (Italy).<br />I
@@ -249,7 +250,9 @@
                         but I love medieval strategy games (did anyone say <a href="#!"
                             data-tippy-template="stronghold">Stronghold</a>?🏰)</p>
 
-                    <a class="btn call-to-action fade-in" href="#contacts">Get in touch</a>
+                    <p style="text-align:center">
+                        <a class="btn call-to-action fade-in" href="#contacts">Get in touch</a>
+                    </p>
 
                 </article>
             </section><!-- #about -->
@@ -262,25 +265,51 @@
                 <button id="close-contacts" class="fas fa-times" aria-label="Exit contacts"></button>
                 <article>
                     <h2>Contacts</h2>
-                    <p>Whether you want to work with me or you just want to say "Hello", I'll be happy to read you! 😃</p>
-
-                        <form id="contact-form" action="" method="post">
-                            <fieldset>
-                                <div class="form-group left">
-                                    <label for="cName">Your name</label>
-                                    <input type="text" name="cName" id="cName"></div>
-                                <div class="form-group left">
-                                    <label for="cEmail">Your email</label>
-                                    <input type="email" name="cEmail" id="cEmail"></div>
-                                <div class="form-group">
-                                    <label for="cMessage">Your message</label>
-                                    <textarea name="cMessage" id="cMessage" rows="3"></textarea></div>
-                            </fieldset>
-                            <div>
-                                <input type="submit" class="btn" value="Send message"></div>
-                        </form>
-                        <!-- Link Social -->
-                        <ul class="contact-socials"></ul>
+                    <div class="form-states" data-current-state="ready">
+                        <div class="form-state ready">
+                            <p>Whether you want to work with me or you just want to say "Hello", I'll be happy to read you! 😃</p>
+                            <!-- Contact Form -->
+                            <form id="contact-form" action="/api/message/send/" method="post">
+                                <fieldset>
+                                    <div class="form-group left">
+                                        <label for="cName">Your name</label>
+                                        <input type="text" name="cName" id="cName" required></div>
+                                    <div class="form-group left">
+                                        <label for="cEmail">Your email</label>
+                                        <input type="email" name="cEmail" id="cEmail" required></div>
+                                    <div class="form-group">
+                                        <label for="cSubject">Subject</label>
+                                        <input type="text" name="cSubject" id="cSubject" required></div>
+                                    <div class="form-group">
+                                        <label for="cMessage">Your message</label>
+                                        <textarea name="cMessage" id="cMessage" rows="3" required></textarea></div>
+                                    <div class="form-group">
+                                        <input type="checkbox" id="cCopy" name="cCopy" value="sendCopy"/><label for="cCopy">Receive a copy</label> 
+                                    </div>
+                                </fieldset>
+                                <div>
+                                    <input type="submit" name="send" class="btn" value="Send message"></div>
+                            </form>
+                        </div>
+                        <!-- Sending Message -->
+                        <div class="form-state sending">
+                            <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                        </div>
+                        <!-- Alert Success -->
+                        <div class="form-state success">
+                            <span class="icon"><i class="fas fa-thumbs-up"></i></span>
+                            <p>Thank you for message!</p>
+                            <p>I will read it as soon as possible.</p>
+                        </div>
+                        <!-- Alert Failed -->
+                        <div class="form-state error">
+                            <span class="icon"><i class="fas fa-sad-tear"></i></span>
+                            <p>Oh, i'm sorry!</p>
+                            <p>Looks like something went wrong...</p>
+                        </div>
+                    </div>
+                    <!-- Link Social -->
+                    <ul class="contact-socials"></ul>
                 </article>
             </section>
 
@@ -383,13 +412,16 @@
             </div>
         </div>
 
+        
         <!-- ReCAPTCHA v3 -->
-        <script
-            src="https://www.google.com/recaptcha/api.js?render=6Ldz1ykaAAAAAOD_zaZjW-vORcaXzepMpXUMUSYH" async></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ldz1ykaAAAAAOD_zaZjW-vORcaXzepMpXUMUSYH" async></script>
         <!-- Popper js -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <!-- Tippy -->
         <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Custom -->
+        <script src="./dist/9.js" async></script>
+        <script src="./dist/index.js"></script>
     </body>
 
 </html>

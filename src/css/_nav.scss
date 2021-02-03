@@ -72,6 +72,7 @@ nav {
                 color: $nav-color;
                 transition: $text-transition;
                 margin: 0 1rem 0;
+                outline: none;
             }
         }
     }
@@ -121,7 +122,8 @@ nav {
                         white-space: nowrap;
                     }
 
-                    &:hover {
+                    &:hover,
+                    &:focus {
                         color: $nav-color-hover;
                         opacity: 1;
                     }
@@ -247,7 +249,8 @@ nav {
                         content: '';
                     }
 
-                    &:hover {
+                    &:hover,
+                    &:focus {
                         font-size: (10vw * $nav-font-size-inc);
                     }
 

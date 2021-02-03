@@ -67,7 +67,21 @@ export const findElementOnScreen = () => {
 
 export const toggleContacts = () => {
     document.querySelector('body').classList.toggle('no-scroll');
-    document.querySelector('#contacts').classList.toggle('active');
+    const contacts = document.getElementById('contacts');
+    contacts.classList.toggle('active');
+    //focus on first focusable input
+    if (contacts.classList.contains('active')) {
+        document.getElementById('contact-form').querySelector('input:first-of-type').focus();
+    }
+}
+
+
+// return all focusable elements
+export function getKeyboardFocusableElements(element = document) {
+    return [...element.querySelectorAll(
+            'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+        )]
+        .filter(el => !el.hasAttribute('disabled'))
 }
 
 
@@ -89,6 +103,25 @@ export const toggleNav = e => {
 }
 
 
-export const formSubmit = () => {
-    alert('Messaggio inviato');
+export const formSubmit = (token = false, $form, url) => {
+    return new Promise((resolve, reject) => {
+        if(token !== false)
+            $form.push({
+                name: 'token',
+                value: token
+            });
+
+        try {
+            $.post(url, $form)
+                .done(response => {
+                    try {
+                        resolve(JSON.parse(response));
+                    } catch (er) {
+                        reject(response);
+                    }
+                });
+        } catch (er) {
+            reject(er);
+        }
+    })
 }

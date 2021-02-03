@@ -156,14 +156,67 @@ input {
     background-color: transparent;
     padding: .75rem;
     color: inherit;
-    backdrop-filter: blur(3px);
     border-radius: $border-radius;
 
-    &[type="text"] {
+    &[type=text] {
 
     }
 
-    &[type="email"] {
+    &[type=email] {
+    }
+
+    // checkbox
+    &[type=checkbox] {
+        $size: 1.5em;
+
+        width: auto;
+        margin-right:$size;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: $size;
+            height: $size;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 0;
+            background-color: nth($color-palette, 3);
+            border-radius: 3px;
+        }
+
+        &:checked:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: $size;
+            height: $size;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 0;
+            background-color: nth($color-palette, 1);
+            border-radius: 3px;
+        }
+
+        &:checked:after {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 100%;
+            border: solid nth($color-palette, 3);
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg) translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        // checkbox label
+        &+label {
+            position:initial;
+            opacity: 1;
+        }
     }
 
 }
@@ -193,9 +246,14 @@ textarea {
     color: map-get($text-color, 'normal');
 }
 
+*:disabled {
+    opacity: .5;
+    cursor: not-allowed !important;
+}
+
 .form-group {
     position: relative;
-    margin-bottom: 5vh;
+    //margin-top: 5vh;
     box-sizing: border-box;
 
     label {
@@ -227,7 +285,8 @@ textarea {
     cursor: pointer;
     border-radius: $border-radius;
 
-    &:hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
         animation: button-over 300ms forwards;
         color:#dcdcdc;
     }
@@ -411,7 +470,32 @@ section.container {
 }
 
 
+// Avatar
 
+.avatar {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: $avatar-size;
+    height: $avatar-size;
+
+    &.x2 {
+        width: calc($avatar-size * 2);
+        height: calc($avatar-size * 2);
+    }
+    &.x3 {
+        width: calc($avatar-size * 3);
+        height: calc($avatar-size * 3);
+    }
+
+
+    &.beer {
+        background-image: url(/images/avatar/beer.png);
+    }
+    &.give-up {
+        background-image: url(/images/avatar/give-up.png);
+    }
+}
 
 
 ///////////////////////////////////////////////////

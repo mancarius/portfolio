@@ -1,51 +1,37 @@
-require('dotenv').config()
 const path = require('path');
 const webpack = require('webpack');
+require('dotenv').config({
+  path: path.resolve(__dirname, 'config')
+});
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const devMode = process.env.MODE !== 'production';
 
 const plugins = [
   new CleanWebpackPlugin({
     cleanStaleWebpackAssets: false
   }),
-  new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, './src', 'index.html'),
-    filename: 'index.html',
-    inject: 'body'
-  }),
   // import automatically modules
   new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery'
   }),
-  new ImageMinimizerPlugin({
-    minimizerOptions: {
-      plugins: [
-        ['gifsicle', {
-          interlaced: true
-        }],
-        ['jpegtran', {
-          progressive: true
-        }],
-        ['optipng', {
-          optimizationLevel: 5
-        }],
-        [
-          'svgo',
-          {
-            plugins: [{
-              removeViewBox: false,
-            }, ],
-          },
-        ],
-      ],
-    },
-  })
+  new CopyPlugin({
+    patterns: [
+      {
+        from: path.resolve(__dirname, "src/css", "index.css"),
+        to: path.resolve(__dirname, "public/css")
+      },
+      {
+        from: path.resolve(__dirname, "src/css", "index.css.map"),
+        to: path.resolve(__dirname, "public/css")
+      },
+    ],
+  }),
 ];
 
 
@@ -64,11 +50,11 @@ module.exports = {
     index: './src/js/index.js',
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'public/dist'),
     publicPath: ''
   },
-  mode: process.env.MODE,
+  mode: process.env.WEBPACK_MODE,
   plugins,
   optimization: {
     splitChunks: { chunks: "all" }
@@ -83,24 +69,6 @@ module.exports = {
   devtool: 'inline-source-map',
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        use: [
-          {
-              loader: 'file-loader',
-          }
-        ]
-      },
       {
         test: /\.js$/,
         use: ['babel-loader'],

@@ -7,7 +7,8 @@
     right: 0;
     height: 100vh;
     z-index: 300;
-    backdrop-filter: grayscale(1) brightness(0.25) blur(5px);
+    background-color: #000000d7;
+    backdrop-filter: grayscale(1) blur(5px);
     overflow: hidden;
     opacity: 0;
     transition: ease-out 400ms;
@@ -35,7 +36,8 @@
         transition: ease 200ms;
         outline: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
             opacity: 1;
             color:#c13636;
         }
@@ -72,7 +74,7 @@
         }
 
         & > * {
-            flex:1;
+            flex:0;
             min-width: 300px;
             transform: skewX($deg);
         }
@@ -89,47 +91,150 @@
             @include socials;
         }
 
-        #contact-form {
+        .form-states {
 
-            position: relative;
-            flex: 3;
+            position:relative;
+            flex:1;
+            display: flex;
+            overflow: hidden;
 
-            fieldset {
-                border: none;
-                padding: 0;
+            .form-state {
+                position: absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                transform: translateY(4rem);
+                opacity: 0;
+                z-index: -1;
+                transition: all 400ms ease-out;
+                transition-property: transform, opacity;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column;
 
-                legend {
-                    font-size: map-get($paragraf-font-size, 'desktop');
-                    margin: {
-                        bottom: 1rem;
+                .icon {
+                    font-size: 4rem;
+                }
+
+                &:not(.ready) p {
+                    text-align: center;
+
+                    &:first-of-type {
+                        font-size: 1.5em;
+                        margin-bottom: 0;
+                    }
+
+                    &:not(:first-of-type) {
+                        opacity: .8;
+                        margin-top: 0;
                     }
                 }
 
-                & > div {
-                    padding: .5rem;
-                    &:not(:last-child) {
-                        margin-bottom: 1rem;
+                &.ready {
+                    display: block;
+
+                    p {
+                        margin-top: 0;
+                        margin-bottom: 2em;
+                    }
+
+                    #contact-form {
+
+                        position: relative;
+                        flex: 3;
+                        width: 100%;
+
+                        fieldset {
+                            border: none;
+                            padding: 0;
+
+                            legend {
+                                font-size: map-get($paragraf-font-size, 'desktop');
+
+                                margin: {
+                                    bottom: 1rem;
+                                }
+                            }
+
+                            &>div {
+                                padding: .5rem;
+                                margin-bottom: 1rem;
+                            }
+
+                            .form-group {
+                                position: relative;
+                                clear: both;
+
+                                &.left {
+                                    float: left;
+                                    width: 50%;
+                                    clear: none;
+                                }
+                            }
+
+                        }
+
+                        input[type="submit"] {
+                            max-width: 10rem;
+                            margin: 0 auto;
+                            display: block;
+                        }
+
                     }
                 }
-                .form-group {
-                    position: relative;
-                    clear: both;
 
-                    &.left {
-                        float: left;
-                        width: 50%;
-                        clear: none;
-                    }
+                &.sending {
+
                 }
 
+                &.success {
+
+                }
+
+                &.failed {
+
+                }
             }
 
-            input[type="submit"] {
-                max-width: 10rem;
-                margin: 0 auto;
-                display: block;
+            @mixin contact_state_active() {
+                transform: translateY(0);
+                opacity: 1;
+                z-index: 10;
+                transition-delay: 400ms;
             }
 
+            &[data-current-state="ready"] {
+                .ready {
+                    @include contact_state_active;
+                }
+            }
+
+            &[data-current-state="sending"] {
+                .sending {
+                    @include contact_state_active;
+
+                    .icon {
+                        animation: bounce .5s;
+                        animation-direction: alternate;
+                        animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+                        animation-iteration-count: infinite;
+                    }
+                }
+            }
+
+            &[data-current-state="success"] {
+                .success {
+                    @include contact_state_active;
+                }
+            }
+            
+            &[data-current-state="error"] {
+                .error {
+                    @include contact_state_active;
+                }
+            }
         }
 
     }
@@ -202,11 +307,10 @@
                 }
 
                 .contact-socials {
-                    backdrop-filter: blur(3px);
                     flex-flow: row;
                     flex-wrap: nowrap;
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     padding: {
                         left: 0;
                         right: 0;
@@ -215,6 +319,7 @@
                         top: 1em;
                     }
                     border-top: 1px dashed #595959;
+                    border-radius: 0;
                     width: 100%;
                     
                     li {
@@ -242,9 +347,9 @@
                         .form-group {
 
                             &.left {
-                                float:none;
-                                width: auto;
-                                clear: both;
+                                float: none !important;
+                                width: auto !important;
+                                clear: both !important;
                             }
                         }
 

@@ -145,3 +145,6 @@ assets/
 
 ### .htaccess ###
 .htaccess
+
+### composer ###
+vendor/

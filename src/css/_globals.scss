@@ -11,7 +11,7 @@ $laptop-screen-width: 1024px;
 
 $font-family-monospace: "Inconsolata",monospace;
 
-$main-font: system-ui;
+$main-font: sans-serif;
 $text-transition: cubic-bezier(0.98, 0.28, 0.25, 1.51) 400ms;
 $text-color:(
     lighter: #cecece,
@@ -50,6 +50,10 @@ $paragraf-color: map-get($text-color, 'normal');
 
 $footer-background-color: nth($color-palette, 1);
 $footer-text-color: map-get($text-color, 'lighter' );
+
+
+// Avatar
+$avatar-size: 2rem;
 
 
 // Social
