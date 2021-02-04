@@ -1619,6 +1619,9 @@ nav #main-menu li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
 }
 
@@ -1727,6 +1730,7 @@ nav #main-menu li a {
   z-index: 10;
   -webkit-transition-delay: 400ms;
           transition-delay: 400ms;
+  position: relative;
 }
 
 #contacts article .form-states[data-current-state="sending"] .sending {
@@ -1736,6 +1740,7 @@ nav #main-menu li a {
   z-index: 10;
   -webkit-transition-delay: 400ms;
           transition-delay: 400ms;
+  position: relative;
 }
 
 #contacts article .form-states[data-current-state="sending"] .sending .icon {
@@ -1756,6 +1761,7 @@ nav #main-menu li a {
   z-index: 10;
   -webkit-transition-delay: 400ms;
           transition-delay: 400ms;
+  position: relative;
 }
 
 #contacts article .form-states[data-current-state="error"] .error {
@@ -1765,6 +1771,7 @@ nav #main-menu li a {
   z-index: 10;
   -webkit-transition-delay: 400ms;
           transition-delay: 400ms;
+  position: relative;
 }
 
 @media only screen and (max-width: 1023px) {
