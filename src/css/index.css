@@ -480,13 +480,13 @@ section.container.active > article > * {
 }
 
 .avatar.x2 {
-  width: calc($avatar-size * 2);
-  height: calc($avatar-size * 2);
+  width: calc(2rem * 2);
+  height: calc(2rem * 2);
 }
 
 .avatar.x3 {
-  width: calc($avatar-size * 3);
-  height: calc($avatar-size * 3);
+  width: calc(2rem * 3);
+  height: calc(2rem * 3);
 }
 
 .avatar.beer {
@@ -1238,6 +1238,8 @@ nav #main-menu li a {
   margin: 0;
   color: #d4d4d4;
   z-index: 2;
+  font-size: 2em;
+  white-space: nowrap;
 }
 
 #skills > article .skills-list .skills-item .wrapper p {

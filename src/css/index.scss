@@ -480,12 +480,12 @@ section.container {
     height: $avatar-size;
 
     &.x2 {
-        width: calc($avatar-size * 2);
-        height: calc($avatar-size * 2);
+        width: calc(#{$avatar-size} * 2);
+        height: calc(#{$avatar-size} * 2);
     }
     &.x3 {
-        width: calc($avatar-size * 3);
-        height: calc($avatar-size * 3);
+        width: calc(#{$avatar-size} * 3);
+        height: calc(#{$avatar-size} * 3);
     }
 
 
