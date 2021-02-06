@@ -1,0 +1,40 @@
+.tippy-template h3 {
+  margin: 0;
+  margin-bottom: .5rem;
+}
+
+.tippy-template ul {
+  overflow: hidden;
+}
+
+.tippy-template ul li {
+  display: inline-block;
+  margin: .25rem 0rem;
+  padding: .25rem;
+  border-radius: 3px;
+  background-color: #cecece;
+  color: #444;
+  font-weight: bold;
+}
+
+.tippy-template img {
+  width: auto;
+  height: auto;
+  max-width: 2rem;
+  max-height: 2rem;
+  margin-right: .5rem;
+}
+
+.tippy-template a {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff !important;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+/*# sourceMappingURL=tippy-template.css.map */

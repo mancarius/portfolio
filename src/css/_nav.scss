@@ -169,18 +169,6 @@ nav {
         display: flex;
         align-items: center;
 
-        #nav-tag {
-            display: block;
-            margin-right: 3vw;
-            transition: $text-transition;
-            //transition-delay: 400ms;
-
-            &.hide {
-                //transition-delay: 0ms;
-                transform: translate(0, 300%);
-            }
-        }
-
         .button-hamburger {
             display: block;
             transform-origin: bottom;
@@ -229,7 +217,7 @@ nav {
 
                 transition: $text-transition;
 
-                @for $i from 1 through 10 {
+                @for $i from 1 through 3 {
 
                     &:nth-child(#{$i}) {
                         transition-delay: #{$i*100}ms;
@@ -245,24 +233,9 @@ nav {
                     opacity: 1;
                     background-color: nth($color-palette, 1);
 
-                    &::before {
-                        content: '';
-                    }
-
                     &:hover,
                     &:focus {
                         font-size: (10vw * $nav-font-size-inc);
-                    }
-
-                    &.active {
-                        &::before {
-                            content: '<';
-                            color: nth($color-palette, 3);
-                        }
-                        &::after {
-                            content: ' >';
-                            color: nth($color-palette, 3);
-                        }
                     }
                 }
             }

@@ -14,16 +14,17 @@ footer {
     position: relative;
     padding: 2rem;
 
-    h3 {
+    h1 {
         margin: 1em 0;
 
-        * {
-            color: nth($color-palette, 3);
-        }
+        a {
+            color: nth($color-palette, 2);
+        
+            i {
+                font-size: 0.7em;
+                opacity: .7;
+            }
 
-        i {
-            font-size: 0.7em;
-            opacity: .7;
         }
     }
 

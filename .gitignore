@@ -148,3 +148,6 @@ assets/
 
 ### composer ###
 vendor/
+
+### sitemap ###
+sitemap.*

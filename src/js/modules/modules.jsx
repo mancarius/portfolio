@@ -98,7 +98,6 @@ export const toggleNav = e => {
     const target = document.getElementById('main-menu');
     el.classList.toggle('close');
     target.classList.toggle('active');
-    document.getElementById('nav-tag').classList.toggle('hide');
     document.body.classList.toggle('no-scroll');
 }
 

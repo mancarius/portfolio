@@ -1,5 +1,5 @@
 @import 'globals';
-@import 'font-face';
+//@import 'font-face';
 
 
 #home {
@@ -17,22 +17,6 @@
     transition: cubic-bezier(0.68, -0.29, 0.72, 0.95) 600ms;
     overflow: visible;
 
-
-    .svg-wave {
-        flex: 1;
-    }
-
-
-    .fade-in {
-        opacity: 0 !important;
-        transform: translateY(1rem);
-        transition: ease-out 600ms;
-
-        &.active {
-            opacity:initial !important;
-            transform: translateY(0);
-        }
-    }
 
 
     & > article {

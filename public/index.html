@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns/website#">
+<html lang="en" prefix="og: http://ogp.me/ns/website#" itemscope itemtype="http://schema.org/Person">
 
     <head>
         <meta charset="UTF-8">
@@ -7,6 +7,23 @@
         <meta name="description" content="Mattia Mancarella is a creative full full-stack web developer and wordpress theme developer." />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="darkslategray" />
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
         <!-- OpenGraph Markup -->
         <meta property="og:url"
@@ -30,17 +47,54 @@
 
         <!-- FontAwesome Icons -->
         <link
-            rel="stylesheet"
+            rel="preload"
             href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+            as="style"
             integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-            crossorigin="anonymous">
+            crossorigin="anonymous"
+            onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link rel="stylesheet" 
+                href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+                integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+                crossorigin="anonymous"/>
+        </noscript>
         <!-- Slick -->
-        <link rel="stylesheet" type="text/css"
-            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-        <link rel="stylesheet" type="text/css"
-            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+        <link rel="preload"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style"
+            onload="this.onload=null;this.rel='stylesheet';this.as=null" />
+        <link rel="preload"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" as="style"
+            onload="this.onload=null;this.rel='stylesheet';this.as=null" />
+        <noscript>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+        </noscript>
         <!-- Custom Styles -->
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="preload" href="./css/font-face.css" as="style"
+            media="screen and (max-width: 768px)"
+            onload="this.onload=null;this.rel='stylesheet';this.as=null" />
+        <link rel="preload" href="./css/tippy-template.css" as="style"
+            onload="this.onload=null;this.rel='stylesheet';this.as=null" />
+
+        <!-- Hotjar Tracking Code for www.mattiamancarella.com -->
+        <script>
+            (function (h, o, t, j, a, r) {
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {
+                    hjid: 2234806,
+                    hjsv: 6
+                };
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+        </script>
 
         <title>Mattia Mancarella Portfolio</title>
 
@@ -52,7 +106,7 @@
             <div class="ball"></div>
         </div>
 
-        <section id="root" itemscope itemtype="http://schema.org/Person">
+        <section id="root">
 
 
             <!-- HOME 
@@ -67,8 +121,6 @@
                 ------------------------------------------>
 
                 <nav>
-                    <div id="nav-tag"></div>
-
                     <a class="button-hamburger" title="show menu" data-target="main-menu">
 
                     </a>
@@ -92,15 +144,16 @@
                 <meta itemprop="email" content="hello@mattiamancarella.com" />
                 <meta itemprop="knowsLanguage" content="it" />
                 <meta itemprop="knowsLanguage" content="en" />
+                <meta itemprop="jobTitle" content="Web Developer" />
                 <article class="move">
                     <div class="output"></div>
                     <p class="main"><span 
                         class="text-block block">Hello</span><span 
                         class="text-block left">i'm</span><span 
-                        class="text-block right" itemprop="givenName" style="color:aliceblue">Mattia</span><span 
+                        class="text-block right" itemprop="givenName" style="color:#c6f3f5">Mattia</span><span
                         class="text-block block" itemprop="familyName">Mancarella</span><span
                         class="text-block left">a</span><span
-                        class="text-block right" itemprop="jobTitle">full-stack</span><span 
+                        class="text-block right">full-stack</span><span 
                         class="text-block block" style="color: darkseagreen;">web developer</span>
                 </article>
             </section><!-- .container -->
@@ -207,20 +260,18 @@
                 <article>
 
                     <picture class="fade-in">
-                        <source media="(max-width: 1024px)" srcset="./images/mattia-mancarella-512px.jpg" />
-                        <source media="(max-width: 768px)" srcset="./images/mattia-mancarella-256px.jpg" />
-                        <source media="(max-width: 425px)" srcset="./images/mattia-mancarella-128px.jpg" />
-                        <img src="./images/mattia-mancarella-512px.jpg" itemprop="image"
+                        <source media="(min-width: 768px)" data-srcset="./images/mattia-mancarella-512px.jpg" />
+                        <source media="(min-width: 425px)" data-srcset="./images/mattia-mancarella-256px.jpg" />
+                        <img class="lazy" data-src="./images/mattia-mancarella-128px.jpg" itemprop="image"
                             alt="Photo of Mattia Mancarella">
                     </picture>
 
                     <h2 class="fade-in" tabindex="0">About me</h2>
 
-                    <p class="main fade-in">Hi, I'm <span itemprop="name">Mattia Mancarella</span> (aka <span
-                            itemprop="additionalName">Mancarius</span>) and i'm coding from sunny Lecce (Italy).<br />I
-                            am a
+                    <p class="main fade-in">Hi, I'm <span itemprop="name">Mattia Mancarella</span> - aka <span
+                            itemprop="additionalName">Mancarius</span> - and i'm coding from sunny Lecce (Italy).<br />I am a
                             <strong>creative</strong>, <strong>attentive to details</strong>, <strong>critical thinker</strong> and
-                        with <strong>problem-solving skills</strong> person. I like</strong> to go deep
+                        with <strong>problem-solving skills</strong> person. I like to go deep
                             into situations that are challenging and that help me improve and create
                         value for others.</p>
 
@@ -271,6 +322,7 @@
                             <!-- Contact Form -->
                             <form id="contact-form" action="/api/message/send/" method="post">
                                 <fieldset>
+                                    <legend>Contact form</legend>
                                     <div class="form-group left">
                                         <label for="cName">Your name</label>
                                         <input type="text" name="cName" id="cName" required></div>
@@ -318,7 +370,8 @@
             ------------------------------------------>
 
             <footer>
-                <h3><a href="#home" title="Go to top">Mattia Mancarella <i class="fas fa-arrow-up"></i></a></h3>
+                <h1><a href="#home" data-target="home" title="Go to top">Mattia Mancarella <i class="fas fa-arrow-up"></i></a>
+                </h1>
                 <!-- Link Social -->
                 <ul class="contact-socials"></ul><!-- .contact-social -->
                 <p>Self-product with ❤️</p>
@@ -387,16 +440,17 @@
             </div>
             <div id="fl-studio">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/FL_Studio" target="_blank" rel="noopener">
-                        <img src="https://www.image-line.com/wp-content/themes/intracto/build/images/fl-header-logo.png"
+                    <a href="https://en.wikipedia.org/wiki/FL_Studio" target="_blank" rel="noopener noreferrer">
+                        <img class="lazy" data-src="https://www.image-line.com/wp-content/themes/intracto/build/images/fl-header-logo.png"
                             alt="FL Studio Logo"> My favorite DAW is FL Studio
                     </a>
                 </div>
             </div>
             <div id="LOTR">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/One_Ring_Blender_Render.png/130px-One_Ring_Blender_Render.png"
+                    <a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/One_Ring_Blender_Render.png/130px-One_Ring_Blender_Render.png"
                             alt="The one Ring"> Lord Of The Rings
                         Thrilogy (Peter Jackson)
                     </a>
@@ -404,8 +458,9 @@
             </div>
             <div id="stronghold">
                 <div class="tippy-template">
-                    <a href="https://en.wikipedia.org/wiki/Stronghold_(2001_video_game)" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Stronghold_%282001%29_Coverart.png/220px-Stronghold_%282001%29_Coverart.png"
+                    <a href="https://en.wikipedia.org/wiki/Stronghold_(2001_video_game)" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="lazy" data-src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Stronghold_%282001%29_Coverart.png/220px-Stronghold_%282001%29_Coverart.png"
                             alt="Stronghold Coverart"> Stronghold
                     </a>
                 </div>
@@ -413,14 +468,17 @@
         </div>
 
         
-        <!-- ReCAPTCHA v3 -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6Ldz1ykaAAAAAOD_zaZjW-vORcaXzepMpXUMUSYH" async></script>
         <!-- Popper js -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <!-- Tippy -->
         <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- ReCAPTCHA v3 -->
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ldz1ykaAAAAAOD_zaZjW-vORcaXzepMpXUMUSYH" async>
+        </script>
         <!-- Custom -->
-        <script src="./dist/9.js" async></script>
+        <script src="./dist/130.js" async></script>
+        <script src="./dist/755.js" async></script>
+        <script src="./dist/index2.js" async></script>
         <script src="./dist/index.js"></script>
     </body>
 

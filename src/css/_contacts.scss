@@ -91,6 +91,16 @@
             @include socials;
         }
 
+        #contact-form {
+
+            fieldset {
+                legend {
+                    display: none;
+                }
+            }
+
+        }
+
         .form-states {
 
             position:relative;
@@ -238,6 +248,7 @@
                 }
             }
         }
+
 
     }
 
